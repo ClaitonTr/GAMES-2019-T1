@@ -16,13 +16,14 @@ class MenuState extends FlxState
 		_text = new FlxText(0, 0, 0, "Jogo", 64);
 		_text.y = -100;
 		_text.x = (FlxG.width / 2) - (_text.width / 2);
+		_text.color = 0x5ACCC4;
 
-		_play = new FlxButton();
+		_play = new FlxButton(play);
 		_play.x = (FlxG.width / 2) - (_play.width + 10);
 		_play.y = 150;
 		_play.text = "Play";
 
-		_creditos = new FlxButton();
+		_creditos = new FlxButton(openCredits);
 		_creditos.x = (FlxG.width / 2) + 10;
 		_creditos.y = 150;
 		_creditos.text = "Créditos";
@@ -43,5 +44,15 @@ class MenuState extends FlxState
 		}else {
 			_text.y = _text.y + 1;
 		}
+	}
+
+	function play()
+	{
+		FlxG.switchState(new PlayState());
+	}
+
+	function openCredits()
+	{
+		FlxG.switchState(new Credits());
 	}
 }
