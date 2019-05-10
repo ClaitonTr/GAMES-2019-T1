@@ -4,6 +4,7 @@ import flixel.FlxState;
 import flixel.ui.FlxButton;
 import flixel.text.FlxText;
 import flixel.FlxG;
+import flixel.util.FlxColor;
 
 class MenuState extends FlxState
 {
@@ -13,10 +14,13 @@ class MenuState extends FlxState
 
 	override public function create():Void
 	{
-		_text = new FlxText(0, 0, 0, "Jogo", 64);
+
+		FlxG.cameras.bgColor = 0xff3fa3ff;
+
+		_text = new FlxText(0, 0, 0, "Super Tenis", 42);
 		_text.y = -100;
 		_text.x = (FlxG.width / 2) - (_text.width / 2);
-		_text.color = 0x5ACCC4;
+		_text.color = 0xFFffb640;
 
 		_play = new FlxButton(play);
 		_play.x = (FlxG.width / 2) - (_play.width + 10);
@@ -32,6 +36,7 @@ class MenuState extends FlxState
 		add(_play);
 		add(_creditos);
 
+
 		super.create();
 	}
 
@@ -39,20 +44,26 @@ class MenuState extends FlxState
 	{
 		super.update(elapsed);
 		
-		if(_text.y == 50) {
-			_text.y = 50;
+		if(_text.y == 70) {
+			_text.y = 70;
 		}else {
-			_text.y = _text.y + 1;
+			_text.y = _text.y + 2;
 		}
 	}
 
 	function play()
 	{
-		FlxG.switchState(new PlayState());
+		FlxG.camera.fade(FlxColor.BLACK, .33, false, function()
+            {
+                FlxG.switchState(new PlayState());
+            });
 	}
 
 	function openCredits()
 	{
-		FlxG.switchState(new Credits());
+		FlxG.camera.fade(FlxColor.BLACK, .33, false, function()
+            {
+                FlxG.switchState(new Credits());
+            });
 	}
 }
