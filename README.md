@@ -13,5 +13,7 @@ Comandos:<br>
 Movimentos: W -> Cima, S -> Baixo, A -> Esquerda, D -> Direita<br>
 Rebater: Click do mouse<br>
 Sair: ESC.<br>
+a cada 3 bolas a velocidade vai aumentando<br>
+Se você deixar passar 3 bolas você perde(NÃo FUNCIONA)<br>
 
 
