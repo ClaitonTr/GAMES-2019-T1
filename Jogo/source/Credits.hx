@@ -14,12 +14,15 @@ class Credits extends FlxState
     var _professor:FlxText;
     var _art:FlxText;
     var _author:FlxText;
+    var _urlArt:FlxText;
     var _backButton:FlxButton;
 
     var _url:FlxText;
 
     override public function create():Void
     {
+        FlxG.cameras.bgColor = 0xff000000;
+
         _title = new FlxText(0, 0, 0, "Super Tenis", 30);
         _title.x = (FlxG.width / 2) - (_title.width / 2);
         _title.y = 10;
@@ -44,6 +47,10 @@ class Credits extends FlxState
         _art.x = (FlxG.width / 2) - (_art.width / 2);
         _art.y = _professor.y + _professor.height + 10;
 
+        _urlArt = new FlxText(0, 0, 0, "http://www.marcogiorgini.com");
+        _urlArt.x = (FlxG.width / 2) - (_urlArt.width / 2);
+        _urlArt.y = _art.y + _art.height + 10;
+
         _url = new FlxText(0, 0, 0, "claitontr.github.io");
         _url.x = (FlxG.width ) - (_url.width + 10);
         _url.y = FlxG.height - 20;
@@ -57,15 +64,10 @@ class Credits extends FlxState
         add(_federal);
         add(_professor);
         add(_art);
+        add(_urlArt);
         add(_url);
         add(_backButton);
         super.create();
-    }
-
-    override public function update(elapsed:Float):Void
-    {
-        super.update(elapsed);
-
     }
 
     function back()
